@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>This is home page!</h1>
+    <p><a href="{% url 'index' %}">Homepage</a> </p>
+    <p><a href="{% url 'post_list' %}">My Blog</a> </p>
+
+
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'post_new' %}">New</a> </p>
+    <p><a href="{% url 'post_draft_list' %}">Drafts</a> </p>
+      <p><a href="{% url 'user_logout' %}">Logout</a> </p>
+    {% else %}
+      <p><a href="{% url 'user_registration' %}">Register here</a> </p>
+      <p><a href="{% url 'user_login'%}">Login</a> </p>
+
+    {% endif %}
+  </body>
+</html>

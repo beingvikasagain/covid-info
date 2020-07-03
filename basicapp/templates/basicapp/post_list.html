@@ -1,0 +1,17 @@
+<title>Home</title>
+{% extends 'basicapp/base.html'%}
+
+{% block content %}
+<h1>My Blog</h1>
+
+
+  {% for post in post_list %}
+  <div class="jumbotron">
+  <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a> </h1>
+  <p>Published date: {{post.published_date|date:"D M Y"}}</p>
+  <p>Posted by: {{post.author|safe}} </p>
+  <p><a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comment.count}}</a> </p>
+  </div>
+  {% endfor %}
+
+{% endblock %}

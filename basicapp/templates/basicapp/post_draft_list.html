@@ -1,0 +1,13 @@
+<title>Post Drafts</title>
+{% extends 'basicapp/base.html'%}
+
+{% block content %}
+  {% for post in post %}
+  <div class="jumbotron">
+    <p> Created on: {{post.created_date|date:"d-m-y"}}</p>
+    <p> Author: {{post.author|safe}}</p>
+    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title|safe}}</a> </h1>
+    <p>{{post.text|safe}}</p>
+  </div>
+  {% endfor %}
+{% endblock %}
